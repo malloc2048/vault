@@ -11,13 +11,13 @@ DATA_FILES_DIRECTORY = os.environ.get('DATA_FILES_DIRECTORY',
 
 
 DEFAULT_SETTINGS = {
-    'app_dir': os.environ.get('APP_DIR', '/home/vault'),
     'data_files_directory': DATA_FILES_DIRECTORY,
     'categories_file': os.path.join(DATA_FILES_DIRECTORY, CATEGORIES_FILENAME),
     'gunicorn': {
         'reload': True,
         'accesslog': "-",
         'bind_port': os.environ.get("GUNICORN_PORT", 8001),
+        'app_dir': os.environ.get('APP_DIR', '/home/vault'),
         'bind_host': os.environ.get("GUNICORN_HOST", '0.0.0.0'),
         'access_log_format': '%(t)s %(h)s "%(r)s" %(s)s "%(a)s"',
         'configured_workers': os.environ.get("GUNICORN_WORKER_COUNT", 4),

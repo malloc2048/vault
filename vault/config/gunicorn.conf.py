@@ -11,4 +11,4 @@ reload = settings.gunicorn.reload
 accesslog = settings.gunicorn.accesslog
 access_log_format = settings.gunicorn.access_log_format
 
-chdir = settings.app_dir
+chdir = settings.gunicorn.app_dir
