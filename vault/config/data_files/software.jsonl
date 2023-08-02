@@ -1,4 +1,11 @@
-{"model_ver": 1, "category": "software", "data": {"publisher": "ibm", "name": "os/2", "version": "warp 3", "type": "operating system"}}
-{"model_ver": 1, "category": "software", "data": {"publisher": "microsoft", "name": "windows", "version": "95", "type": "operating system"}}
-{"model_ver": 1, "category": "software", "data": {"publisher": "microsoft", "name": "windows", "version": "98", "type": "operating system"}}
-{"model_ver": 1, "category": "game", "data": {"publisher": "microprose", "title": "star trek klingon honor guard", "developer": "microprose"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 95", "version": "4.00", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 98 Second Edition", "version": "4.10", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows Me", "version": "4.90", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 2000", "version": "NT 5.0", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows XP Professional", "version": "NT 5.1", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows Vista", "version": "NT 6.0", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 7", "version": "NT 6.1", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 8", "version": "NT 6.2", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 8.1", "version": "NT 6.3", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 10", "version": "NT 10.0", "type": "operating system"}}
+{"model_ver": 1, "category": "software", "data": {"publisher": "Microsoft", "name": "Windows 11", "version": "21H2", "type": "operating system"}}

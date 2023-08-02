@@ -1,0 +1,3 @@
+{"model_ver": 1, "category": "hardware", "data": {"make": "Intel", "model": "486 Dx2 66 MHz", "subcategory": "cpu"}}
+{"model_ver": 1, "category": "hardware", "data": {"make": "AMD", "model": "Ryzen 7 5700G", "subcategory": "cpu"}}
+{"model_ver": 1, "category": "hardware", "data": {"make": "Gigabyte", "model": "Nvidia GTX 1080", "subcategory": "gpu"}}
