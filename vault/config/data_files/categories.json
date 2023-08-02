@@ -28,5 +28,15 @@
     ],
     "query_fields": {},
     "mutation_fields": {}
+  },
+  "hardware": {
+    "display_name": "Hardware",
+    "display_fields": [
+      "make",
+      "model",
+      "subcategory"
+    ],
+    "query_fields": {},
+    "mutation_fields": {}
   }
 }

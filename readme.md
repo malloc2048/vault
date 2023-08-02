@@ -24,7 +24,6 @@ any jsonl file found contains the data that Vault will display.
 * Get the Search functionality to work
 * Add an method for deleting entries
 * Switch to a database instead of flat jsonl files
-* Dockerize Vault
 
 # How it works
 If you care about seeing some design notes and maybe why some things are done the way they are 
