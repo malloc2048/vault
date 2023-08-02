@@ -1,0 +1,32 @@
+{
+  "game": {
+    "display_name": "Game",
+    "display_fields": [
+      "title",
+      "publisher",
+      "developer"
+    ],
+    "query_fields": {},
+    "mutation_fields": {}
+  },
+  "software": {
+    "display_name": "Software",
+    "display_fields": [
+      "publisher",
+      "name",
+      "version",
+      "type"
+    ],
+    "query_fields": {},
+    "mutation_fields": {}
+  },
+  "manual": {
+    "display_name": "Manual",
+    "display_fields": [
+      "title",
+      "publisher"
+    ],
+    "query_fields": {},
+    "mutation_fields": {}
+  }
+}

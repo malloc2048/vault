@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <form class="form-horizontal-pf-align-left" role="form" method="post" action="/filter/{{ category }}">
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newItemModal">
+                        Add New Item
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        {% for filter in filters %}
+                            <th>
+                                <select onchange="this.form.submit()" name="filter_{{ filter }}" class="form-select"
+                                        aria-label="select example">
+                                    <option selected>{{ filter.capitalize() }}</option>
+                                    {% for f in filters[filter] %}
+                                        <option value="{{ f }}">{{ f.capitalize() }}</option>
+                                    {% endfor %}
+                                </select>
+                            </th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category_datum in category_data %}
+                        <tr>
+                            {% for data in category_datum %}
+                                <td>{{ category_datum[data].capitalize() }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <form class="form-horizontal-pf-align-left" role="form" method="post" action="/save/{{ category }}">
+        <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="newItemModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="newItemModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                            {% for attrib in attributes %}
+                                <tr>
+                                    <td><label for="{{ attrib }}">{{ attrib }}</label></td>
+                                    <td><input type="text" id="{{ attrib }}" name="{{ attrib }}"></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
