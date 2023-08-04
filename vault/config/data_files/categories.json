@@ -4,10 +4,15 @@
     "display_fields": [
       "title",
       "publisher",
-      "developer"
+      "developer",
+      "platform"
     ],
-    "query_fields": {},
-    "mutation_fields": {}
+    "query_fields": [
+      "publisher",
+      "developer",
+      "platform"
+    ],
+    "mutation_fields": []
   },
   "software": {
     "display_name": "Software",
@@ -15,10 +20,14 @@
       "publisher",
       "name",
       "version",
+      "type",
+      "image"
+    ],
+    "query_fields": [
+      "publisher",
       "type"
     ],
-    "query_fields": {},
-    "mutation_fields": {}
+    "mutation_fields": []
   },
   "manual": {
     "display_name": "Manual",
@@ -26,8 +35,8 @@
       "title",
       "publisher"
     ],
-    "query_fields": {},
-    "mutation_fields": {}
+    "query_fields": [],
+    "mutation_fields": []
   },
   "hardware": {
     "display_name": "Hardware",
@@ -36,7 +45,7 @@
       "model",
       "subcategory"
     ],
-    "query_fields": {},
-    "mutation_fields": {}
+    "query_fields": [],
+    "mutation_fields": []
   }
 }

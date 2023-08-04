@@ -1,16 +1,17 @@
 import os
 
 
-class AppConfig:
-    DEBUG = True
-
-
 CATEGORIES_FILENAME = os.environ.get('CATEGORIES_FILENAME', 'categories.json')
 DATA_FILES_DIRECTORY = os.environ.get('DATA_FILES_DIRECTORY',
                                       os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data_files'))
 
 
 DEFAULT_SETTINGS = {
+    'app': {
+        'DEBUG': True,
+        'SECRET_KEY': 'ecret-key-goes-here',
+        'SQLALCHEMY_DATABASE_URI': 'sqlite:///db.sqlite'
+    },
     'data_files_directory': DATA_FILES_DIRECTORY,
     'categories_file': os.path.join(DATA_FILES_DIRECTORY, CATEGORIES_FILENAME),
     'gunicorn': {

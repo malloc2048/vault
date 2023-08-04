@@ -4,6 +4,9 @@ from vault import models
 from flask import request, render_template, redirect, url_for
 
 
+# TODO: there is a bug here that the header and data need to be in the same order.
+#  That will become cumbersome, so see about fixing that.
+#  Unsure right now if it is fixable here or in the html template
 @app.route('/category/<category>', methods=['GET'])
 def category_display(category):
     attributes, data = models.get_category_data(category)
@@ -16,11 +19,12 @@ def category_display(category):
         filter_str = args.get('filter').replace('\'', '\"')
         filter_dict = json.loads(filter_str)
 
-    filters = { ele: set() for ele in attributes }
-    for row in data:
-        for item in row:
-            if item != 'id' and item != 'hash' and row[item]:
-                filters[item].add(row[item])  # category should exist now
+    # filters = {ele: set() for ele in attributes}
+    filters = models.get_category_query_fields(category)
+    # for row in data:
+    #     for item in row:
+    #         if item != 'id' and item != 'hash' and row[item]:
+    #             filters[item].add(row[item])  # category should exist now
 
     # filter the results
     # if filter_dict:
@@ -32,8 +36,9 @@ def category_display(category):
         attributes=attributes,
         category_data=data,
         categories=models.category_details(),
-        filters=filters
+        filters=filters,
     )
+
 
 @app.route('/filter/<category>', methods=['POST'])
 def filter_items(category):
@@ -47,6 +52,7 @@ def filter_items(category):
         return redirect(url_for(f'category_display', category=category, filter=data))
     else:
         return redirect(url_for(f'category_display', category=category))
+
 
 @app.route('/save/<category>', methods=['POST'])
 def add_category_item(category):

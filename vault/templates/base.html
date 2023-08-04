@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -30,8 +31,12 @@
                     {% endfor %}
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#newItemModal">
+                        Add Item
+                    </button>
+{#                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newItemModal">#}
+{#                        Add Item#}
+{#                    </button>#}
                 </form>
                 <form class="d-flex" method="post" action="/reload/{{  request.endpoint }}%{{ category }}">
                     <button type="submit" class="btn btn-outline-success">
@@ -42,26 +47,38 @@
         </div>
     </nav>
 
-        <!-- Modal -->
-     <form class="form-horizontal-pf-align-left" role="form" method="post" action="/add/category">
-        <div class="modal fade" id="newCategory" tabindex="-1" aria-labelledby="newCategoryLabel" aria-hidden="true">
+    <!-- Add Item Modal -->
+    <form class="form-horizontal-pf-align-left" role="form" method="post" action="/save/{{ category }}">
+        <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="newItemModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="newCategoryLabel">Modal title</h1>
+                        <h1 class="modal-title fs-5" id="newItemModalLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <table><tbody>
-                        <tr>
-                            <td><label for="name">Name</label></td>
-                            <td><input type="text" id="name" name="name"></td>
-                        </tr>
-                        </tbody></table>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td><label>Category</label></td>
+                                <td><select class="form-select" aria-label="select example">
+                                    {% for c in categories %}
+                                        <option value="{{ c }}">{{ c.capitalize() }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            {% for attrib in attributes %}
+                                <tr>
+                                    <td><label for="{{ attrib }}">{{ attrib }}</label></td>
+                                    <td><input type="text" id="{{ attrib }}" name="{{ attrib }}"></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </div>
             </div>

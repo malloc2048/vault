@@ -12,13 +12,18 @@
                     <thead>
                     <tr>
                         <th scope="col">Category</th>
-                        <th scope="col">Item Count</th>
+                        <th scope="col">Count</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for category in counts %}
                         <tr>
-                            <td><a href="/category/{{ category.lower() }}">{{ category.capitalize() }}</a></td>
+                            <td>
+                                <a href="/category/{{ category.lower() }}">
+                                    <img src="{{ url_for('static', filename='img/' + category.lower()) + '.png' }}" width="50" height="50" />
+                                    {{ category.capitalize() }}
+                                </a>
+                            </td>
                             <td>{{ counts[category] }}</td>
                         </tr>
                     {% endfor %}

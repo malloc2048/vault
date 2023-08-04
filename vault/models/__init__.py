@@ -1,12 +1,27 @@
 import os
+import sys
 import json
 import logging
 from vault.models.model import Model
 from vault.config.app_conf import settings
 
 models_map = dict()
-logger = logging.getLogger(__name__)
 models_file_directory = f'{os.path.abspath(os.path.dirname(__file__))}'
+
+
+def configure_logging():
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
+
+vault_logger = configure_logging()
+
 
 def get_category_data(category):
     category_model = models_map.get(category)
@@ -16,6 +31,14 @@ def get_category_data(category):
         data = category_model.query()
         return display_fields, data
     return [], []
+
+def get_category_query_fields(category):
+    category_model = models_map.get(category)
+
+    if category_model:
+        return category_model.query_fields
+    return []
+
 
 def get_category_counts() -> dict:
     counts = dict()
@@ -56,7 +79,7 @@ def load_categories():
         with open(settings.categories_file, 'r') as categories_file:
             categories = json.load(categories_file)
     except FileNotFoundError:
-        logger.error(f'unable to find categories.json file in {settings.data_files_directory}')
+        vault_logger.error(f'unable to find categories.json file in {settings.data_files_directory}')
 
     for category in categories:
         models_map.setdefault(category, Model(
@@ -67,7 +90,7 @@ def load_categories():
         ))
 
 def load_category_file(category_data_file: str):
-    logger.info(f'loading data file {category_data_file}')
+    vault_logger.info(f'loading data file {category_data_file}')
 
     with open(category_data_file, 'r') as data_file:
         for line in data_file:
@@ -83,7 +106,6 @@ def load_data_files():
 
     data_files = os.listdir(settings.data_files_directory)
     for data_file_name in data_files:
-
         # only care about jsonl files, assume all others are not relevant
         if data_file_name.endswith('jsonl'):
             load_category_file(os.path.join(settings.data_files_directory, data_file_name))
@@ -91,3 +113,7 @@ def load_data_files():
 def reload_data_files():
     models_map.clear()
     load_data_files()
+
+def get_category_list():
+    print(models_map.keys())
+    return []
