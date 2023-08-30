@@ -25,6 +25,7 @@ DEFAULT_SETTINGS = {
     }
 }
 
+
 class Settings(dict):
     """
     A dict that allows access of its keys through '.' notation.

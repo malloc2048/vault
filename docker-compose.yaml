@@ -10,4 +10,3 @@ services:
     volumes:
       - ./vault:/home/vault/vault
     image: vault:latest
-

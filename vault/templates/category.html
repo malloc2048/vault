@@ -34,7 +34,14 @@
                     <tbody>
                     {% for category_datum in category_data %}
                         <tr>
-                            <td><img src="{{ url_for('static', filename='img/win95.jpg') }}" width="50" height="50" /></td>
+                            {% if 'subcategory' in category_datum %}
+                                <td><img
+                                        src="{{ url_for('static', filename='img/' + category_datum['subcategory'] + '.jpg') }}"
+                                        alt="{{ category }}" width="30" height="30"/></td>
+                            {% else %}
+                                <td><img src="{{ url_for('static', filename='img/' + category + '.png') }}"
+                                         alt="{{ category }}" width="30" height="30"/></td>
+                            {% endif %}
                             {% for attrib in attributes %}
                                 {% if attrib != 'image' %}
                                     <td>{{ category_datum[attrib] }}</td>
