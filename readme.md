@@ -29,5 +29,5 @@ any jsonl file found contains the data that Vault will display.
 If you care about seeing some design notes and maybe why some things are done the way they are 
 please see this [document](design.md)
 
-auth reference
+## auth reference
 https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
