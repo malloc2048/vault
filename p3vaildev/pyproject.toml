@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "p3vaildev"
+version = "0.1.0"
+description = "A wierd little management page"
+authors = ["Jim Maroulis <jmaroulis@redlattice.com>"]
+readme = "readme.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^3.0.3"
+gunicorn = "^23.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

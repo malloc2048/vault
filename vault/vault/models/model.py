@@ -11,7 +11,7 @@ class Model:
 
     def add(self, data: dict):
         if data:
-            # calculate a hash for the data
+            # calculate a hash for the vault3
             hash_str = ''
             for field in self.display_fields:
                 hash_str += data.get(field).lower()

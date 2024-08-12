@@ -71,7 +71,7 @@ def save(category: str):
 
     with open(f'{settings.data_files_directory}/{category}.jsonl', 'w') as data_file:
         for entry in data:
-            json.dump({'model_ver': 1, 'category': category, 'data': entry}, data_file)
+            json.dump({'model_ver': 1, 'category': category, 'vault3': entry}, data_file)
             data_file.write('\n')
 
 def load_categories():
@@ -90,7 +90,7 @@ def load_categories():
         ))
 
 def load_category_file(category_data_file: str):
-    vault_logger.info(f'loading data file {category_data_file}')
+    vault_logger.info(f'loading vault3 file {category_data_file}')
 
     with open(category_data_file, 'r') as data_file:
         for line in data_file:
@@ -98,10 +98,10 @@ def load_category_file(category_data_file: str):
 
             if data.get('category'):
                 if models_map.get(data.get('category')):
-                    models_map.get(data.get('category')).add(data.get('data'))
+                    models_map.get(data.get('category')).add(data.get('vault3'))
 
 def load_data_files():
-    # load the supported categories from categories.json, this must be done before the data files are loaded
+    # load the supported categories from categories.json, this must be done before the vault3 files are loaded
     load_categories()
 
     data_files = os.listdir(settings.data_files_directory)

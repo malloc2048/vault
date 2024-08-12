@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   vault:
     build:
@@ -10,3 +8,14 @@ services:
     volumes:
       - ./vault:/home/vault/vault
     image: vault:latest
+
+  p3vaildev:
+    build:
+      context: ./p3vaildev
+      dockerfile: p3vaildev.dockerfile
+    ports:
+      - "8080:8001"
+    volumes:
+      - ./vault3:/home/p3vaildev/vault3
+      - ./vault:/home/p3vaildev/p3vaildev
+    image: p3vaildev:latest

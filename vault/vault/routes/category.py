@@ -4,7 +4,7 @@ from vault import models
 from flask import request, render_template, redirect, url_for
 
 
-# TODO: there is a bug here that the header and data need to be in the same order.
+# TODO: there is a bug here that the header and vault3 need to be in the same order.
 #  That will become cumbersome, so see about fixing that.
 #  Unsure right now if it is fixable here or in the html template
 @app.route('/category/<category>', methods=['GET'])
@@ -21,14 +21,14 @@ def category_display(category):
 
     # filters = {ele: set() for ele in attributes}
     filters = models.get_category_query_fields(category)
-    # for row in data:
+    # for row in vault3:
     #     for item in row:
     #         if item != 'id' and item != 'hash' and row[item]:
     #             filters[item].add(row[item])  # category should exist now
 
     # filter the results
     # if filter_dict:
-    #     data = filter_data(list(filter_dict.values()), data)
+    #     vault3 = filter_data(list(filter_dict.values()), vault3)
 
     return render_template(
         f'category.html',
