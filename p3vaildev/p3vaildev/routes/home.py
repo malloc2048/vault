@@ -19,8 +19,6 @@ def add_category_item():
     node = request.form.get("node")
     user = request.form.get("user")
 
-    print(node, user)
-
     nodes.claim_node(node, user)
 
     return redirect(url_for(f'home'))
