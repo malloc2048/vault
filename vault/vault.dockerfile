@@ -5,7 +5,6 @@ WORKDIR /home/vault
 
 COPY vault /home/vault/vault
 COPY readme.md /home/vault/readme.md
-COPY poetry.lock /home/vault/poetry.lock
 COPY pyproject.toml /home/vault/pyproject.toml
 
 RUN pip install poetry && poetry config virtualenvs.in-project true --local && poetry install

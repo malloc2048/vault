@@ -3,29 +3,29 @@
 {% block content %}
     <div class="container">
 {#    <form class="form-horizontal-pf-align-left" role="form" method="post" action="/save">#}
-        <div>
-            <h2>Summary</h2>
-        </div>
+{#        <div>#}
+{#            <h2>P3 Vail Dev Node Status</h2>#}
+{#        </div>#}
         <div>
             <div class="col-sm-10">
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">Category</th>
-                        <th scope="col">Count</th>
+                        <th scope="col">Node</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Claimed By</th>
+                        <th scope="col">Claimed Date</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for category in counts %}
+                    {% for node in nodes %}
                         <tr>
-                            <td>
-                                <a href="/category/{{ category.lower() }}">
-                                    <img src="{{ url_for('static', filename='img/' + category.lower()) + '.png' }}"
-                                         width="30" height="30"/>
-                                    {{ category.capitalize() }}
-                                </a>
-                            </td>
-                            <td>{{ counts[category] }}</td>
+                            <td>{{ node.name.capitalize() }}</td>
+                            <td><a href="{{ node.url }}">{{ node.url }}</a></td>
+                            <td>TODO: Unknown</td>
+                            <td>{{ node.user.capitalize() }}</td>
+                            <td>{{ node.claimed_time }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

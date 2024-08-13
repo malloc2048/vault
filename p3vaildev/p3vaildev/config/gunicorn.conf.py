@@ -1,5 +1,5 @@
 import os
-from p3vaildev.p3vaildev.config.app_conf import settings
+from p3vaildev.config.app_conf import settings
 
 
 bind = f"{settings.gunicorn_bind_host}:{settings.gunicorn_bind_port}"

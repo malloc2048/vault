@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>P3 Vail Dev Status Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">P3 Vail Dev Server Status</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#newItemModal">
+                        Claim Node
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Claim Modal -->
+    <form class="form-horizontal-pf-align-left" role="form" method="post" action="/save/">
+        <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="newItemModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="newItemModalLabel">Checkout</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td><label>Nodes</label></td>
+                                <td><select class="form-select" aria-label="select example" name="node">
+                                    {% for node in nodes %}
+                                        <option value="{{ node.name }}">{{ node.name.capitalize() }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td><label>User</label></td>
+                                <td><select class="form-select" aria-label="select example" name="user">
+                                    {% for user in users %}
+                                        <option value="{{ user }}">{{ user.capitalize() }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Claim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

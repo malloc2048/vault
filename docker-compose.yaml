@@ -1,7 +1,7 @@
 services:
   vault:
     build:
-      context: .
+      context: ./vault
       dockerfile: vault.dockerfile
     ports:
       - "80:8001"
@@ -16,6 +16,6 @@ services:
     ports:
       - "8080:8001"
     volumes:
-      - ./vault3:/home/p3vaildev/vault3
-      - ./vault:/home/p3vaildev/p3vaildev
+      - ./p3vaildev/data:/home/p3vaildev/data
+      - ./p3vaildev/p3vaildev:/home/p3vaildev/p3vaildev
     image: p3vaildev:latest
