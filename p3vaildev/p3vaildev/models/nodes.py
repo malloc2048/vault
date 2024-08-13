@@ -32,7 +32,7 @@ class Node:
 class Nodes:
     def __init__(self, settings):
         self._nodes = {
-            "p3vaildev-node1": Node("p3vaildev-node1", "10.10.33.11", "http://portal.10-10-33-11.nip.io"),
+            "p3vaildev-node1": Node("p3vaildev-node1", "10.10.33.11", "http://p3vd-n1-portal.dev.penrose.redlattice.com"),
             "p3vaildev-node2": Node("p3vaildev-node2", "10.10.33.21", "http://portal.10-10-33-21.nip.io"),
             "p3vaildev-node3": Node("p3vaildev-node3", "10.10.33.31", "http://portal.10-10-33-31.nip.io"),
             "p3vaildev-node4": Node("p3vaildev-node4", "10.10.33.41", "http://portal.10-10-33-41.nip.io"),
