@@ -1,7 +1,7 @@
-{"name": "p3vaildev-node1", "url": "http://portal.10-10-33-11.nip.io", "user": "available", "claimed_time": "08-13-2024 01:11:27"}
-{"name": "p3vaildev-node2", "url": "http://portal.10-10-33-21.nip.io", "user": "available", "claimed_time": "08-13-2024 01:01:04"}
-{"name": "p3vaildev-node3", "url": "http://portal.10-10-33-31.nip.io", "user": "jim", "claimed_time": "08-13-2024 01:01:04"}
-{"name": "p3vaildev-node4", "url": "http://portal.10-10-33-41.nip.io", "user": "andrew", "claimed_time": "08-13-2024 01:01:04"}
-{"name": "p3vaildev-node5", "url": "http://portal.10-10-33-51.nip.io", "user": "available", "claimed_time": "08-13-2024 01:01:04"}
-{"name": "p2vaildev-harness1", "url": "http://10.10.33.111/graphql/", "user": "available", "claimed_time": "08-13-2024 01:12:21"}
-{"name": "p2vaildev-harness2", "url": "http://10.10.33.112/graphql/", "user": "available", "claimed_time": "08-13-2024 01:01:04"}
+{"name": "p3vaildev-node1", "ip": "10.10.33.11", "url": "http://portal.10-10-33-11.nip.io", "user": "available", "status": "unknown", "claimed_time": "08-13-2024 12:53:41"}
+{"name": "p3vaildev-node2", "ip": "10.10.33.21", "url": "http://portal.10-10-33-21.nip.io", "user": "available", "status": "unknown", "claimed_time": "08-13-2024 01:01:04"}
+{"name": "p3vaildev-node3", "ip": "10.10.33.31", "url": "http://portal.10-10-33-31.nip.io", "user": "jim", "status": "unknown", "claimed_time": "08-13-2024 01:01:04"}
+{"name": "p3vaildev-node4", "ip": "10.10.33.41", "url": "http://portal.10-10-33-41.nip.io", "user": "andrew", "status": "unknown", "claimed_time": "08-13-2024 01:01:04"}
+{"name": "p3vaildev-node5", "ip": "10.10.33.51", "url": "http://portal.10-10-33-51.nip.io", "user": "ryan", "status": "unknown", "claimed_time": "08-13-2024 12:49:35"}
+{"name": "p2vaildev-harness1", "ip": "10.10.33.111", "url": "http://10.10.33.111/graphql/", "user": "james", "status": "unknown", "claimed_time": "08-13-2024 12:49:11"}
+{"name": "p2vaildev-harness2", "ip": "10.10.33.112", "url": "http://10.10.33.112/graphql/", "user": "available", "status": "unknown", "claimed_time": "08-13-2024 01:01:04"}

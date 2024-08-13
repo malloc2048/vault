@@ -1,4 +1,4 @@
-FROM python:3.10-slim as builder
+FROM python:3.10-slim AS builder
 
 RUN mkdir -p /home/p3vaildev
 WORKDIR /home/p3vaildev
@@ -9,11 +9,11 @@ COPY pyproject.toml /home/p3vaildev/pyproject.toml
 
 RUN pip install poetry && poetry config virtualenvs.in-project true --local && poetry install
 
-FROM builder as final
+FROM builder AS final
 ENV PATH="/home/p3vaildev/.venv/bin:$PATH"
 COPY --from=builder /home/p3vaildev/.venv /home/p3vaildev/.venv
 
-RUN apt-get update && apt-get -q install -y git zsh vim curl
+RUN apt-get update && apt-get -q install -y git zsh vim curl iputils-ping
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 RUN mkdir -p /home/p3vaildev

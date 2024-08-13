@@ -1,3 +1,4 @@
+import os
 import json
 import os.path
 from datetime import datetime
@@ -7,27 +8,37 @@ from dataclasses import dataclass, asdict
 @dataclass
 class Node:
     name: str
+    ip: str
     url: str
     user: str = "available"
+    status: str = "unknown"
     claimed_time: datetime = datetime.now().strftime("%m-%d-%Y %H:%M:%S")
 
     def from_dict(self, data: dict):
         self.name = data.get("name")
         self.url = data.get("url")
         self.user = data.get("user")
+        self.status = data.get("status", "unknown")
         self.claimed_time = data.get("claimed_time")
+
+    def update_status(self):
+        response = os.system(f"ping -q -n -c 1 {self.ip}")
+        if response == 0:
+            print(f"{self.name} is up!")
+        else:
+            print(f"{self.name} is down!")
 
 
 class Nodes:
     def __init__(self, settings):
         self._nodes = {
-            "p3vaildev-node1": Node("p3vaildev-node1", "http://portal.10-10-33-11.nip.io"),
-            "p3vaildev-node2": Node("p3vaildev-node2", "http://portal.10-10-33-21.nip.io"),
-            "p3vaildev-node3": Node("p3vaildev-node3", "http://portal.10-10-33-31.nip.io"),
-            "p3vaildev-node4": Node("p3vaildev-node4", "http://portal.10-10-33-41.nip.io"),
-            "p3vaildev-node5": Node("p3vaildev-node5", "http://portal.10-10-33-51.nip.io"),
-            "p2vaildev-harness1": Node("p2vaildev-harness1", "http://10.10.33.111/graphql/"),
-            "p2vaildev-harness2": Node("p2vaildev-harness2", "http://10.10.33.112/graphql/")
+            "p3vaildev-node1": Node("p3vaildev-node1", "10.10.33.11", "http://portal.10-10-33-11.nip.io"),
+            "p3vaildev-node2": Node("p3vaildev-node2", "10.10.33.21", "http://portal.10-10-33-21.nip.io"),
+            "p3vaildev-node3": Node("p3vaildev-node3", "10.10.33.31", "http://portal.10-10-33-31.nip.io"),
+            "p3vaildev-node4": Node("p3vaildev-node4", "10.10.33.41", "http://portal.10-10-33-41.nip.io"),
+            "p3vaildev-node5": Node("p3vaildev-node5", "10.10.33.51", "http://portal.10-10-33-51.nip.io"),
+            "p2vaildev-harness1": Node("p2vaildev-harness1", "10.10.33.111", "http://10.10.33.111/graphql/"),
+            "p2vaildev-harness2": Node("p2vaildev-harness2", "10.10.33.112", "http://10.10.33.112/graphql/")
         }
         self._node_claims = dict()
         self.settings = settings

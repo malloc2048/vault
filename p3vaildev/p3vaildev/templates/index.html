@@ -13,7 +13,7 @@
                     <tr>
                         <th scope="col">Node</th>
                         <th scope="col">URL</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">IP</th>
                         <th scope="col">Claimed By</th>
                         <th scope="col">Claimed Date</th>
                     </tr>
@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{ node.name.capitalize() }}</td>
                             <td><a href="{{ node.url }}">{{ node.url }}</a></td>
-                            <td>TODO: Unknown</td>
+                            <td>{{ node.ip }}</td>
                             <td>{{ node.user.capitalize() }}</td>
                             <td>{{ node.claimed_time }}</td>
                         </tr>

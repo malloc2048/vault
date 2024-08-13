@@ -1,4 +1,4 @@
-FROM python:3.10-slim as builder
+FROM python:3.10-slim AS builder
 
 RUN mkdir -p /home/vault
 WORKDIR /home/vault
@@ -10,7 +10,7 @@ COPY pyproject.toml /home/vault/pyproject.toml
 RUN pip install poetry && poetry config virtualenvs.in-project true --local && poetry install
 
 
-FROM builder as final
+FROM builder AS final
 ENV PATH="/home/vault/.venv/bin:$PATH"
 COPY --from=builder /home/vault/.venv /home/vault/.venv
 

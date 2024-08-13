@@ -15,7 +15,7 @@ def home():
 
 
 @app.route('/save/', methods=['POST'])
-def add_category_item():
+def update():
     node = request.form.get("node")
     user = request.form.get("user")
 
