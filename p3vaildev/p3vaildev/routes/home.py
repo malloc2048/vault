@@ -5,6 +5,9 @@ from flask import render_template, redirect, url_for, request
 
 @app.route('/')
 def home():
+    for node in nodes.nodes:
+        node.update_status()
+
     return render_template(
         'index.html',
         title='Home',

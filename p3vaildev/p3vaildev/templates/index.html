@@ -22,7 +22,11 @@
                     {% for node in nodes %}
                         <tr>
                             <td>{{ node.name.capitalize() }}</td>
-                            <td><a href="{{ node.url }}">{{ node.url }}</a></td>
+                            {% if node.status == "up" %}
+                                <td><a href="{{ node.url }}">{{ node.url }}</a></td>
+                            {% else %}
+                                <td><a>{{ node.url }}</a></td>
+                            {% endif %}
                             <td>{{ node.ip }}</td>
                             <td>{{ node.user.capitalize() }}</td>
                             <td>{{ node.claimed_time }}</td>

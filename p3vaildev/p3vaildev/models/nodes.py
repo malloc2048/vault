@@ -1,6 +1,7 @@
 import os
 import json
 import os.path
+import requests
 from datetime import datetime
 from dataclasses import dataclass, asdict
 
@@ -22,11 +23,15 @@ class Node:
         self.claimed_time = data.get("claimed_time")
 
     def update_status(self):
-        response = os.system(f"ping -q -n -c 1 {self.ip}")
-        if response == 0:
-            print(f"{self.name} is up!")
-        else:
-            print(f"{self.name} is down!")
+        try:
+            response = requests.get(self.url, timeout=0.1)
+            if response.status_code == 200:
+                self.status = "up"
+            else:
+                self.status = "down"
+        except requests.exceptions.ConnectionError:
+            self.status = "down"
+        print(self.status)
 
 
 class Nodes:
@@ -36,7 +41,6 @@ class Nodes:
             "p3vaildev-node2": Node("p3vaildev-node2", "10.10.33.21", "http://portal.10-10-33-21.nip.io"),
             "p3vaildev-node3": Node("p3vaildev-node3", "10.10.33.31", "http://portal.10-10-33-31.nip.io"),
             "p3vaildev-node4": Node("p3vaildev-node4", "10.10.33.41", "http://portal.10-10-33-41.nip.io"),
-            "p3vaildev-node5": Node("p3vaildev-node5", "10.10.33.51", "http://portal.10-10-33-51.nip.io"),
             "p2vaildev-harness1": Node("p2vaildev-harness1", "10.10.33.111", "http://10.10.33.111/graphql/"),
             "p2vaildev-harness2": Node("p2vaildev-harness2", "10.10.33.112", "http://10.10.33.112/graphql/")
         }
