@@ -6,7 +6,7 @@ services:
     ports:
       - "80:8001"
     volumes:
-      - ./vault:/home/vault/vault
+      - ./vault/vault:/home/vault/vault
     image: vault:latest
 
   p3vaildev:
