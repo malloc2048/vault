@@ -1,21 +1,21 @@
 services:
   vault:
+    image: vault:latest
     build:
-      context: ./vault
+      context: ./apps/vault
       dockerfile: vault.dockerfile
     ports:
       - "80:8001"
     volumes:
-      - ./vault/vault:/home/vault/vault
-    image: vault:latest
+      - ./apps/vault/vault:/home/vault/vault
 
-  p3vaildev:
+  server_status:
+    image: server_status:latest
     build:
-      context: ./p3vaildev
-      dockerfile: p3vaildev.dockerfile
+      context: ./apps/server_status
+      dockerfile: server_status.dockerfile
     ports:
       - "8080:8001"
     volumes:
-      - ./p3vaildev/data:/home/p3vaildev/data
-      - ./p3vaildev/p3vaildev:/home/p3vaildev/p3vaildev
-    image: p3vaildev:latest
+      - ./apps/server_status/data:/home/server_status/data
+      - ./apps/server_status/server_status:/home/server_status/server_status

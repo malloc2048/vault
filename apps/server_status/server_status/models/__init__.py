@@ -1,7 +1,7 @@
 import os
 from .nodes import Nodes
 from .users import Users
-from p3vaildev.config.app_conf import settings
+from server_status.config.app_conf import settings
 
 
 users = Users()

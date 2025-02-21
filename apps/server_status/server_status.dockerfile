@@ -3,7 +3,7 @@ FROM python:3.10-slim AS builder
 RUN mkdir -p /home/p3vaildev
 WORKDIR /home/p3vaildev
 
-COPY p3vaildev /home/p3vaildev/p3vaildev
+COPY server_status /home/p3vaildev/p3vaildev
 COPY readme.md /home/p3vaildev/readme.md
 COPY pyproject.toml /home/p3vaildev/pyproject.toml
 
@@ -20,5 +20,5 @@ RUN mkdir -p /home/p3vaildev
 WORKDIR /home/p3vaildev
 
 COPY data /home/p3vaildev/data
-COPY p3vaildev /home/p3vaildev/p3vaildev
+COPY server_status /home/p3vaildev/p3vaildev
 CMD ["gunicorn", "-c", "p3vaildev/config/gunicorn.conf.py", "p3vaildev:app"]

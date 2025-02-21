@@ -1,5 +1,5 @@
-from p3vaildev import app
-from p3vaildev.models import users, nodes
+from server_status import app
+from server_status.models import users, nodes
 from flask import render_template, redirect, url_for, request
 
 

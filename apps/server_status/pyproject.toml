@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "p3vaildev"
+name = "server_status"
 version = "0.1.0"
 description = "A wierd little management page"
 authors = ["Jim Maroulis <jmaroulis@redlattice.com>"]
 readme = "readme.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 Flask = "^3.0.3"
 gunicorn = "^23.0.0"
 requests = "^2.32.3"
