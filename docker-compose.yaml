@@ -2,20 +2,9 @@ services:
   vault:
     image: vault:latest
     build:
-      context: ./apps/vault
-      dockerfile: vault.dockerfile
+      context: .
+      dockerfile: ./Dockerfile
     ports:
       - "80:8001"
     volumes:
-      - ./apps/vault/vault:/home/vault/vault
-
-  server_status:
-    image: server_status:latest
-    build:
-      context: ./apps/server_status
-      dockerfile: server_status.dockerfile
-    ports:
-      - "8080:8001"
-    volumes:
-      - ./apps/server_status/data:/home/server_status/data
-      - ./apps/server_status/server_status:/home/server_status/server_status
+      - ./vault:/app/vault

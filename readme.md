@@ -24,10 +24,7 @@ any jsonl file found contains the data that Vault will display.
 * Get the Search functionality to work
 * Add an method for deleting entries
 * Switch to a database instead of flat jsonl files
-
-# How it works
-If you care about seeing some design notes and maybe why some things are done the way they are 
-please see this [document](design.md)
+* Move python project management to UV
 
 ## auth reference
 https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login

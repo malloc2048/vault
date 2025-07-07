@@ -5,11 +5,10 @@ CATEGORIES_FILENAME = os.environ.get('CATEGORIES_FILENAME', 'categories.json')
 DATA_FILES_DIRECTORY = os.environ.get('DATA_FILES_DIRECTORY',
                                       os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data_files'))
 
-
 DEFAULT_SETTINGS = {
     'app': {
         'DEBUG': True,
-        'SECRET_KEY': 'ecret-key-goes-here',
+        'SECRET_KEY': 'secret-key-goes-here',
         'SQLALCHEMY_DATABASE_URI': 'sqlite:///db.sqlite'
     },
     'data_files_directory': DATA_FILES_DIRECTORY,
@@ -18,7 +17,7 @@ DEFAULT_SETTINGS = {
         'reload': True,
         'accesslog': "-",
         'bind_port': os.environ.get("GUNICORN_PORT", 8001),
-        'app_dir': os.environ.get('APP_DIR', '/home/vault'),
+        'app_dir': os.environ.get('APP_DIR', '/app/vault'),
         'bind_host': os.environ.get("GUNICORN_HOST", '0.0.0.0'),
         'access_log_format': '%(t)s %(h)s "%(r)s" %(s)s "%(a)s"',
         'configured_workers': os.environ.get("GUNICORN_WORKER_COUNT", 4),

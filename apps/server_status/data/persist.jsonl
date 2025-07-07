@@ -1,6 +1,0 @@
-{"name": "p3vaildev-node1", "ip": "10.10.33.11", "url": "http://portal.10-10-33-11.nip.io", "user": "jim", "status": "down", "claimed_time": "08-15-2024 16:31:27"}
-{"name": "p3vaildev-node2", "ip": "10.10.33.21", "url": "http://portal.10-10-33-21.nip.io", "user": "available", "status": "down", "claimed_time": "08-15-2024 16:28:15"}
-{"name": "p3vaildev-node3", "ip": "10.10.33.31", "url": "http://portal.10-10-33-31.nip.io", "user": "available", "status": "up", "claimed_time": "08-15-2024 16:28:15"}
-{"name": "p3vaildev-node4", "ip": "10.10.33.41", "url": "http://portal.10-10-33-41.nip.io", "user": "available", "status": "down", "claimed_time": "08-15-2024 16:28:15"}
-{"name": "p2vaildev-harness1", "ip": "10.10.33.111", "url": "http://10.10.33.111/graphql/", "user": "available", "status": "down", "claimed_time": "08-15-2024 16:28:15"}
-{"name": "p2vaildev-harness2", "ip": "10.10.33.112", "url": "http://10.10.33.112/graphql/", "user": "available", "status": "down", "claimed_time": "08-15-2024 16:28:15"}

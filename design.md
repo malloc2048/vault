@@ -1,2 +1,0 @@
-# Vault - How it works
-
