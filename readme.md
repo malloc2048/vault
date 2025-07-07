@@ -28,6 +28,7 @@ any jsonl file found contains the data that Vault will display.
 * Move python project management to UV
 * Redesign the pages maybe use Tailwinds? 
 * Add an auth?
+* Maybe consider converting to Golang, or maybe a Django app
 
 ## auth reference
 https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
