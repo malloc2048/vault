@@ -21,6 +21,7 @@ Specifically the categories.json file holds the supported categories and fields 
 any jsonl file found contains the data that Vault will display.
 
 ## TODO/Future enhancements
+* Add button is not working properly
 * Get the Search functionality to work
 * functionality to deleting entries
 * Switch to a database (sqlite) instead of flat jsonl files

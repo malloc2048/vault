@@ -1,6 +1,6 @@
 {
-  "game": {
-    "display_name": "Game",
+  "games": {
+    "display_name": "Games",
     "display_fields": [
       "title",
       "publisher",
@@ -44,6 +44,18 @@
       "make",
       "model",
       "subcategory"
+    ],
+    "query_fields": [],
+    "mutation_fields": []
+  },
+  "mileage": {
+    "display_name": "Mileage",
+    "display_fields": [
+      "date",
+      "location",
+      "mileage",
+      "gallons",
+      "cost_per_gallon"
     ],
     "query_fields": [],
     "mutation_fields": []
